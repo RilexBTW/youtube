@@ -1,2 +1,6 @@
-import gui.py
-import download.py
+import gui
+
+
+class main():
+    def openGUI():
+        gui() ## gui opens and instantly crashes
