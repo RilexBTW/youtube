@@ -10,6 +10,17 @@ class SayHello(App):
         self.window = GridLayout()
         self.window.cols = 1
         self.window.add_widget(Image(source="logo.png"))
+        #Label widget
+        self.greeting = Label(text="What's your name?")
+        self.window.add_widget(self.greeting)
+        # text input widget
+        self.user = TextInput(multiline=False)
+        self.window.add_widget(self.user)
+
+
+
+
+
 
         return self.window
 
