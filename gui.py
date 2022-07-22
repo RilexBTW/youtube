@@ -6,12 +6,13 @@ from kivy.uix.image import Image
 from kivy.uix.button import Button
 from kivy.uix.textinput import TextInput
 from kivy.uix.widget import Widget
+from kivy.uix.boxlayout import BoxLayout
 from kivy.lang import Builder
+from kivy.properties import ObjectProperty
 import time
 import youtube_dl
 
 
-Builder.load_file('images.kv')
 
 #download variables
 fileType = ''
@@ -20,12 +21,20 @@ format = 'bestaudio/best'
 fileOutputName = ''
 fileQuality = ''
 testvar = ''
-downloadready = ''
+
+# create a background class which inherits the boxlayout class
+class Background(BoxLayout):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+    pass
 
 
-class SayHello(App):
+
+
+class YTDL(App):
     def build(self):
         self.window = GridLayout()
+        self.icon = 'logo.png'
         self.window.cols = 1
         self.window.size_hint = (0.6, 0.4)
         self.window.pos_hint = {"center_x": 0.5, "center_y": 0.5}
@@ -137,12 +146,11 @@ class SayHello(App):
 
 
 
-        return self.window
-
-
+        #return self.window
+        return Background()
 
 
 
 
 if __name__ == "__main__":
-    SayHello().run()
+    YTDL().run()
