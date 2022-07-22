@@ -14,20 +14,13 @@ import youtube_dl
 
 
 
-#download variables
+#download variables - DO NOT CHANGE
 fileType = ''
 fileFormat = ''
 format = 'bestaudio/best'
 fileOutputName = ''
 fileQuality = ''
 testvar = ''
-
-# create a background class which inherits the boxlayout class
-class Background(BoxLayout):
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
-    pass
-
 
 
 
@@ -38,11 +31,11 @@ class YTDL(App):
         self.window.cols = 1
         self.window.size_hint = (0.6, 0.4)
         self.window.pos_hint = {"center_x": 0.5, "center_y": 0.5}
-
         #add widget to window
 
         #image widget
         self.window.add_widget(Image(source="logo.png"))
+
         #Label widget
         self.greeting = Label(
                         text ="YouTube Downloader",
@@ -142,12 +135,12 @@ class YTDL(App):
             with youtube_dl.YoutubeDL(ydl_opts) as ydl:
                 ydl.download([url])
         print("placeholder placeholder placeholder")
+        self.greeting.text = "Download Complete!"
 
 
 
 
         #return self.window
-        return Background()
 
 
 
