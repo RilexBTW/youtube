@@ -50,13 +50,23 @@ class SayHello(App):
                            )
         self.window.add_widget(self.subgreeting)
 
+        #Mp3 Button
         self.selbutton = Button(
                          text ="mp3",
-                         size_hint = (0.,.5),
-                         bold = True
+                         size_hint = (0.,0.5),
+                         bold = True,
+                         background_color = '#0096FF'
                          )
         self.window.add_widget(self.selbutton)
 
+        #Mp4 button
+        self.selbutton2 = Button(
+                          text ="mp4",
+                          size_hint = (0.1,0.5),
+                          bold = True,
+                          background_color = '#0096FF'
+                          )
+        self.window.add_widget(self.selbutton2)
 
 
         # text input widget
