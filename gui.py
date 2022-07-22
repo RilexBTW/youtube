@@ -5,19 +5,23 @@ from kivy.uix.label import Label
 from kivy.uix.image import Image
 from kivy.uix.button import Button
 from kivy.uix.textinput import TextInput
+from kivy.uix.widget import Widget
+from kivy.lang import Builder
 import time
 import youtube_dl
 
 
+Builder.load_file('images.kv')
 
 #download variables
 fileType = ''
 fileFormat = ''
+format = 'bestaudio/best'
 fileOutputName = ''
 fileQuality = ''
 testvar = ''
 downloadready = ''
-debug = print()
+
 
 class SayHello(App):
     def build(self):
@@ -30,12 +34,12 @@ class SayHello(App):
 
         #image widget
         self.window.add_widget(Image(source="logo.png"))
-
         #Label widget
         self.greeting = Label(
-                        text ="What Would You Like to Download Today??",
+                        text ="YouTube Downloader",
                         font_size = 38,
-                        color ='b3e5fc'
+                        color ='b3e5fc',
+                         font_family = 'Calibri'
                         )
 
         self.window.add_widget(self.greeting)
@@ -52,27 +56,31 @@ class SayHello(App):
 
         #Mp3 Button
         self.selbutton = Button(
-                         text ="mp3",
+                         text ="MP3",
                          size_hint = (0.,0.5),
                          bold = True,
-                         background_color = '#0096FF'
+                         background_color = '#0096FF',
+                         font_family = 'Calibri'
                          )
         self.window.add_widget(self.selbutton)
+        self.selbutton.bind(on_press=self.mp3)
 
         #Mp4 button
         self.selbutton2 = Button(
-                          text ="mp4",
+                          text ="MP4",
                           size_hint = (0.1,0.5),
                           bold = True,
-                          background_color = '#0096FF'
+                          background_color = '#0096FF',
+                          font_family = 'Calibri'
                           )
         self.window.add_widget(self.selbutton2)
+        self.selbutton2.bind(on_press=self.mp4)
 
 
         # text input widget
         self.user = TextInput(
                     multiline=False,
-                    padding_y= (20,20),
+                    padding_y= (0.5,0.5),
                     size_hint = (1, 0.5)
                     )
 
@@ -91,8 +99,17 @@ class SayHello(App):
         return self.window
 
 
+    def mp3(self,instance): #mp3 callback
+        fileType = 'FFmpegExtractAudio'
+        print('[+] Debugging File Type:' + " " + fileType)
+        fileFormat = 'mp3'
+        print('[+] Debugging file Format:' + " " + fileFormat)
 
-
+    def mp4(self,instance): # mp4 callback
+        fileFormat = 'mp4'
+        fileType = ''
+        print('[+] Debugging file Format:' + " " + fileFormat)
+        print('[+] Debugging File Type:' + " " + fileType)
 
     def callback(self,instance):   ## combined download and gui into one file for simplicity
         downloadReady = 1
@@ -100,15 +117,22 @@ class SayHello(App):
         url = self.user.text
         time.sleep(2)
         if downloadReady == 0:
-            debug('awaiting URL...')
+            print('awaiting URL...')
 
 
         if downloadReady == 1:
-            debug('Starting download...')
-            ydl_opts = {}
+            print('Starting download...')
+            ydl_opts = {
+            'format': format,
+#            'postprocessors': [{
+#                'key': fileType,
+#                'preferredcodec' : fileFormat,
+#                'preferredquality': '192',
+#            }]
+        }
             with youtube_dl.YoutubeDL(ydl_opts) as ydl:
                 ydl.download([url])
-        debug("placeholder placeholder placeholder")
+        print("placeholder placeholder placeholder")
 
 
 
