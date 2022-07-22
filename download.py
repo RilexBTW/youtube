@@ -3,23 +3,31 @@ import youtube_dl
 
 
 
-url = 'https://www.youtube.com/watch?v=pwBFOuCrdr4'
+url = ''
 fileType = ''
 fileFormat = ''
 fileOutputName = ''
 fileQuality = ''
 testvar = ''
+downloadReady = ''
 
 
 
 
 class download():
     def grab():
-        print('Starting download...')
-        ydl_opts = {}
-        with youtube_dl.YoutubeDL(ydl_opts) as ydl:
-            ydl.download([url])
-    print("placeholder placeholder placeholder")
+        if downloadReady == 0:
+            print('awaiting URL...')
+
+
+        if downloadReady == 1:
+            print('Starting download...')
+            ydl_opts = {}
+            with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+                ydl.download([url])
+        print("placeholder placeholder placeholder")
+
+
     grab()
 
 

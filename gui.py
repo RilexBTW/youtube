@@ -1,9 +1,22 @@
+from __future__ import unicode_literals
 from kivy.app import App
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.label import Label
 from kivy.uix.image import Image
 from kivy.uix.button import Button
 from kivy.uix.textinput import TextInput
+import time
+import youtube_dl
+
+
+
+#download variables
+fileType = ''
+fileFormat = ''
+fileOutputName = ''
+fileQuality = ''
+testvar = ''
+downloadready = ''
 
 
 
@@ -68,10 +81,35 @@ class SayHello(App):
 
         return self.window
 
-    def callback(self,instance):
+
+
+
+
+    def callback(self,instance):   ## combined download and gui into one file for simplicity
+        downloadReady = 1
         self.greeting.text = "Downloading " + self.user.text + "!"
+        url = self.user.text
+        time.sleep(2)
+        if downloadReady == 0:
+            print('awaiting URL...')
+
+
+        if downloadReady == 1:
+            print('Starting download...')
+            ydl_opts = {}
+            with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+                ydl.download([url])
+        print("placeholder placeholder placeholder")
+
+
+
 
         return self.window
+
+
+
+
+
 
 if __name__ == "__main__":
     SayHello().run()
