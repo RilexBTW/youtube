@@ -5,11 +5,13 @@ from kivy.uix.image import Image
 from kivy.uix.button import Button
 from kivy.uix.textinput import TextInput
 
+
+
 class SayHello(App):
     def build(self):
         self.window = GridLayout()
         self.window.cols = 1
-        self.window.size_hint = (0.6, 0.7)
+        self.window.size_hint = (0.6, 0.4)
         self.window.pos_hint = {"center_x": 0.5, "center_y": 0.5}
 
         #add widget to window
@@ -21,18 +23,28 @@ class SayHello(App):
         self.greeting = Label(
                         text ="What Would You Like to Download Today??",
                         font_size = 38,
-                        color ='#0096FF'
+                        color ='b3e5fc'
                         )
 
         self.window.add_widget(self.greeting)
 
+
+
         #Url widget
         self.subgreeting = Label(
-                           text ="Paste URL here",
+                           text ="Paste URL in box below",
                            font_size = 24,
-                           color = '000080'
+                           color = 'e1f5fe'
                            )
         self.window.add_widget(self.subgreeting)
+
+        self.selbutton = Button(
+                         text ="mp3",
+                         size_hint = (0.,.5),
+                         bold = True
+                         )
+        self.window.add_widget(self.selbutton)
+
 
 
         # text input widget
