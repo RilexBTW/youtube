@@ -17,8 +17,7 @@ fileOutputName = ''
 fileQuality = ''
 testvar = ''
 downloadready = ''
-
-
+debug = print()
 
 class SayHello(App):
     def build(self):
@@ -91,15 +90,15 @@ class SayHello(App):
         url = self.user.text
         time.sleep(2)
         if downloadReady == 0:
-            print('awaiting URL...')
+            debug('awaiting URL...')
 
 
         if downloadReady == 1:
-            print('Starting download...')
+            debug('Starting download...')
             ydl_opts = {}
             with youtube_dl.YoutubeDL(ydl_opts) as ydl:
                 ydl.download([url])
-        print("placeholder placeholder placeholder")
+        debug("placeholder placeholder placeholder")
 
 
 
