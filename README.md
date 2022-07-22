@@ -4,7 +4,7 @@ GUI Wrapper written in python for YouTubeDL
 
 
 
-### Changelog:
+# Changelog:
 
 # 1.0.0-a0.1
 ## Added
