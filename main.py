@@ -13,14 +13,19 @@ testvar = ''
 
 
 
-def main():
+class main():
+    def download():
+        print('Starting download...')
+        ydl_opts = {}
+        with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+            ydl.download([url])
     print("placeholder placeholder placeholder")
     download()
 
 
 
-def download():
-    print('Starting download...')
-    ydl_opts = {}
-    with youtube_dl.YoutubeDL(ydl_opts) as ydl:
-        ydl.download(url)
+
+
+
+if __name__ == "__main__":
+    main()
