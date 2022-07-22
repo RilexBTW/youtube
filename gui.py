@@ -1,11 +1,17 @@
 from kivy.app import App
-from kivy.uix.widget import Widget
-class PongGame(Widget):
-    pass
+from kivy.uix.gridlayout import GridLayout
+from kivy.uix.label import Label
+from kivy.uix.image import Image
+from kivy.uix.button import Button
+from kivy.uix.textinput import TextInput
 
-class PongApp(App):
+class SayHello(App):
     def build(self):
-        return PongGame()
+        self.window = GridLayout()
+        self.window.cols = 1
+        self.window.add_widget(Image(source="logo.png"))
 
-if __name__ == '__main__':
-    PongApp().run()
+        return self.window
+
+if __name__ == "__main__":
+    SayHello().run()
