@@ -5,6 +5,18 @@ from kivy.uix.image import Image
 from kivy.uix.button import Button
 from kivy.uix.textinput import TextInput
 
+
+
+#download variables
+url = 'https://www.youtube.com/watch?v=pwBFOuCrdr4'
+fileType = ''
+fileFormat = ''
+fileOutputName = ''
+fileQuality = ''
+testvar = ''
+
+
+
 class SayHello(App):
     def build(self):
         self.window = GridLayout()
