@@ -5,7 +5,7 @@ from kivy.uix.image import Image
 from kivy.uix.button import Button
 from kivy.uix.textinput import TextInput
 
-logo = 'https://www.pngkey.com/png/full/416-4161104_bill-cosby-portrait-bill-cosby.png'
+logo = 'logo.png'
 
 class SayHello(App):
     def build(self):
