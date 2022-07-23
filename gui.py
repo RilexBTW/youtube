@@ -33,22 +33,13 @@ class SayHello(App):
 
         #Label widget
         self.greeting = Label(
-                        text ="What Would You Like to Download Today??",
+                        text ="",
                         font_size = 38,
                         color ='b3e5fc'
                         )
 
         self.window.add_widget(self.greeting)
 
-
-
-        #Url widget
-        self.subgreeting = Label(
-                           text ="Paste URL in box below",
-                           font_size = 24,
-                           color = 'e1f5fe'
-                           )
-        self.window.add_widget(self.subgreeting)
 
         #Mp3 Button
         self.selbutton = Button(
@@ -66,7 +57,9 @@ class SayHello(App):
                           bold = True,
                           background_color = '#0096FF'
                           )
+
         self.window.add_widget(self.selbutton2)
+
 
 
         # text input widget
