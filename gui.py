@@ -38,11 +38,8 @@ class YTDL(App):
 
         #Label widget
         self.greeting = Label(
-<<<<<<< HEAD
                         text ="",
-=======
                         text ="YouTube Downloader",
->>>>>>> 2afb01a989349788dc70bdc6af88ad79f5b64e33
                         font_size = 38,
                         color ='b3e5fc',
                          font_family = 'Calibri'
