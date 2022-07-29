@@ -15,6 +15,7 @@ import youtube_dl
 
 
 #download variables - DO NOT CHANGE
+downloadReady = 0
 fileType = ''
 fileFormat = ''
 format = 'bestaudio/best'
@@ -95,16 +96,23 @@ class YTDL(App):
 
 
     def mp3(self,instance): #mp3 callback
-        fileType = 'FFmpegExtractAudio'
+        global mp3
+        mp3 = 1
+        global mp4
+        mp4 = 0
         print('[+] Debugging File Type:' + " " + fileType)
-        fileFormat = 'mp3'
         print('[+] Debugging file Format:' + " " + fileFormat)
+        if downloadReady == 1:
+            print('Starting download...')
 
     def mp4(self,instance): # mp4 callback
-        fileFormat = 'mp4'
-        fileType = ''
+        global mp4
+        mp4 = 1
+        global mp3
+        mp3 = 0
         print('[+] Debugging file Format:' + " " + fileFormat)
         print('[+] Debugging File Type:' + " " + fileType)
+
 
     def callback(self,instance):   ## combined download and gui into one file for simplicity
         downloadReady = 1
@@ -117,15 +125,27 @@ class YTDL(App):
 
         if downloadReady == 1:
             print('Starting download...')
+
+        if mp4 == 1:
+            global ydl_opts
             ydl_opts = {
-            'format': format,
-#            'postprocessors': [{
-#                'key': fileType,
-#                'preferredcodec' : fileFormat,
-#                'preferredquality': '192',
-#            }]
-        }
+                'format': 'best[ext=mp4]' #137 is 1080, 136 is 720
+                    }
             with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+                ydl.download([url])
+        if mp3 == 1:
+            global ydl_opts_mp3
+            ydl_opts_mp3 = {
+                'format': format,
+                'postprocessors': [{
+                'key': 'FFmpegExtractAudio',
+                'preferredcodec' : 'mp3',
+                'preferredquality': '192',
+                        }]
+                    }
+
+
+            with youtube_dl.YoutubeDL(ydl_opts_mp3) as ydl:
                 ydl.download([url])
         print("placeholder placeholder placeholder")
         self.greeting.text = "Download Complete!"
