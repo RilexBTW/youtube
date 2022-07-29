@@ -25,79 +25,10 @@ fileQuality = ''
 testvar = ''
 
 
-
-class YTDL(App):
-    def build(self):
-        self.window = GridLayout()
-        self.icon = 'logo.png'
-        self.window.cols = 1
-        self.window.size_hint = (0.6, 0.4)
-        self.window.pos_hint = {"center_x": 0.5, "center_y": 0.5}
-        #add widget to window
-
-        #image widget
-        self.window.add_widget(Image(source="logo.png"))
-
-        #Label widget
-        self.greeting = Label(
-                        text = "YouTube Downloader",
-                        font_size = 38,
-                        color ='b3e5fc',
-                         font_family = 'Calibri'
-                        )
-
-        self.window.add_widget(self.greeting)
-
-
-        #Mp3 Button
-        self.selbutton = Button(
-                         text ="MP3",
-                         size_hint = (0.,0.5),
-                         bold = True,
-                         background_color = '#0096FF',
-                         font_family = 'Calibri'
-                         )
-        self.window.add_widget(self.selbutton)
-        self.selbutton.bind(on_press=self.mp3)
-
-        #Mp4 button
-        self.selbutton2 = Button(
-                          text ="MP4",
-                          size_hint = (0.1,0.5),
-                          bold = True,
-                          background_color = '#0096FF',
-                          font_family = 'Calibri'
-                          )
-
-        self.window.add_widget(self.selbutton2)
-        self.selbutton2.bind(on_press=self.mp4)
-
-
-
-        # text input widget
-        self.user = TextInput(
-                    multiline=False,
-                    padding_y= (0.5,0.5),
-                    size_hint = (1, 0.5)
-                    )
-
-        self.window.add_widget(self.user)
-
-        # Button widget
-        self.button = Button(
-                      text="Download!",
-                      size_hint = (1,0.5),
-                      bold = True,
-                      background_color ='#0096FF'
-                      )
-        self.button.bind(on_press=self.callback)
-        self.window.add_widget(self.button)
-
-        return self.window
-
+class MyGridLayout(Widget):
 
     def mp3(self,instance): #mp3 callback
-        global mp3
+        global mp3j
         mp3 = 1
         global mp4
         mp4 = 0
@@ -164,6 +95,11 @@ class YTDL(App):
 def postDownload(): ## what happens after user decides continue after successful download
     print ("[+] Debug Message: Starting postDownload Function")
     self.greeting.text = "Start another download?"
+
+
+class YTDL(App):
+    def build(self):
+        return MyGridLayout()
 
 
 if __name__ == "__main__":
