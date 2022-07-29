@@ -100,8 +100,8 @@ class YTDL(App):
         mp3 = 1
         global mp4
         mp4 = 0
-        print('[+] Debugging File Type:' + " " + fileType)
-        print('[+] Debugging file Format:' + " " + fileFormat)
+        print('[+] Debugging File Type:' + " " + 'MP3')
+        print('[+] Debugging file Format:' + " " + 'MP3')
         if downloadReady == 1:
             print('Starting download...')
 
@@ -110,8 +110,8 @@ class YTDL(App):
         mp4 = 1
         global mp3
         mp3 = 0
-        print('[+] Debugging file Format:' + " " + fileFormat)
-        print('[+] Debugging File Type:' + " " + fileType)
+        print('[+] Debugging file Format:' + " " + 'MP4')
+        print('[+] Debugging File Type:' + " " + 'MP4')
 
 
     def callback(self,instance):   ## combined download and gui into one file for simplicity
@@ -161,7 +161,7 @@ class YTDL(App):
 
 
 def postDownload(): ## what happens after user decides continue after successful download
-    print "[+] Debug Message: Starting postDownload Function"
+    print ("[+] Debug Message: Starting postDownload Function")
     self.greeting.text = "Start another download?"
 
 
