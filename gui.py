@@ -158,5 +158,12 @@ class YTDL(App):
 
 
 
+
+
+def postDownload(): ## what happens after user decides continue after successful download
+    print "[+] Debug Message: Starting postDownload Function"
+    self.greeting.text = "Start another download?"
+
+
 if __name__ == "__main__":
     YTDL().run()

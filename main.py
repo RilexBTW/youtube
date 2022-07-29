@@ -1,4 +1,0 @@
-import gui
-
-
-class main():
