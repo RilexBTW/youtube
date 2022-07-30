@@ -99,6 +99,7 @@ def postDownload(): ## what happens after user decides continue after successful
 
 class YTDL(App):
     def build(self):
+        self.icon = ('logo.png')
         return MyGridLayout()
 
 
