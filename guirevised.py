@@ -26,9 +26,8 @@ testvar = ''
 
 
 class MyGridLayout(Widget):
-
-    def mp3(self,instance): #mp3 callback
-        global mp3j
+    def mp3(self): #mp3 callback
+        global mp3
         mp3 = 1
         global mp4
         mp4 = 0
@@ -37,7 +36,7 @@ class MyGridLayout(Widget):
         if downloadReady == 1:
             print('Starting download...')
 
-    def mp4(self,instance): # mp4 callback
+    def mp4(self): # mp4 callback
         global mp4
         mp4 = 1
         global mp3
@@ -46,7 +45,7 @@ class MyGridLayout(Widget):
         print('[+] Debugging File Type:' + " " + 'MP4')
 
 
-    def callback(self,instance):   ## combined download and gui into one file for simplicity
+    def downloadCallback(self,instance):   ## combined download and gui into one file for simplicity
         downloadReady = 1
         self.greeting.text = "Downloading " + self.user.text + "!"
         url = self.user.text
