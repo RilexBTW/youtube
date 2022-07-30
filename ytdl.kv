@@ -11,26 +11,34 @@
                     size: root.width, root.height
                     pos: self.pos
 
+
         GridLayout:
-            cols:2
+
+            cols:1
+
+            Label:
+                text: "Youtube Downloader"
+                font_size: 40
+                font_family: 'Calibri'
+
+
+
             Button:
                 text: "MP3"
                 pos_hint :{'center_x':0.0, 'center_y':0.0}
-                size_hint: 20, 10
+                size_hint: 1,0.5
                 background_color: (0.06, .36, .4, .675)
                 font_size: 40
                 on_press: Thread(target=root.mp3())
             Button:
                 text: "MP4"
                 pos_hint :{'center_x':0.0, 'center_y':0.0}
-                size_hint: 20, 10
+                size_hint: 1,0.5
                 background_color: (0.06, .36, .4, .675)
                 font_size: 40
                 on_press: Thread(target=root.mp4())
-            Button:
-                text: "Download"
-                pos_hint :{'center_x':0.0, 'center_y':0.0}
-                size_hint: 20, 10
-                background_color: (0.06, .36, .4, .675)
-                font_size: 40
-                on_press: Thread(target=root.downloadCallback())
+
+            TextInput:
+                multiline: False
+                padding_y: 0.5,0.5
+                size_hint: 1, 0.5
