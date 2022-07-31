@@ -26,7 +26,7 @@ fileQuality = ''
 testvar = ''
 
 
-class MyFloatLayout(FloatLayout):
+class MyFloatLayout(Widget):
     def mp3(self): #mp3 callback
         global mp3
         mp3 = 1
