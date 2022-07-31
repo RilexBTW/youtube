@@ -7,6 +7,7 @@ from kivy.uix.button import Button
 from kivy.uix.textinput import TextInput
 from kivy.uix.widget import Widget
 from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.floatlayout import FloatLayout
 from kivy.lang import Builder
 from kivy.properties import ObjectProperty
 import time
@@ -25,7 +26,7 @@ fileQuality = ''
 testvar = ''
 
 
-class MyGridLayout(Widget):
+class MyFloatLayout(FloatLayout):
     def mp3(self): #mp3 callback
         global mp3
         mp3 = 1
@@ -99,7 +100,7 @@ def postDownload(): ## what happens after user decides continue after successful
 class YTDL(App):
     def build(self):
         self.icon = ('logo.png')
-        return MyGridLayout()
+        return MyFloatLayout()
 
 
 if __name__ == "__main__":
