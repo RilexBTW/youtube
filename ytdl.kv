@@ -10,50 +10,48 @@
                     source:'images/bg.png'
                     size: root.width, root.height
                     pos: self.pos
-        Label:
-            text: "Youtube Downloader"
-            font_size: 40
-            font_family: 'Calibri'
-            size_hint:0.5,0.5
-
-
         GridLayout:
-            padding: 200,200
-            cols:2
-
-            Button:
-                text: "MP3"
-                pos_hint :{'center_x':0.0, 'center_y':0.0}
-                size_hint: 1,1
-                background_color: (0.06, .36, .4, .675)
+            size_hint: 1, 0.1
+            padding: 1,1
+            cols:1
+            Label:
+                text: "Youtube Downloader"
                 font_size: 40
-                on_press: Thread(target=root.mp3())
-            Button:
-                text: "MP4"
-                pos_hint :{'center_x':0.0, 'center_y':0.0}
-                size_hint: 1,1
-                background_color: (0.06, .36, .4, .675)
-                font_size: 40
-                on_press: Thread(target=root.mp4())
-
-
-            GridLayout:
-                cols:1
-                rows:3
-                pos_hint :{'center_x':0.0, 'center_y':0.0}
+                font_family: 'Calibri'
+                size_hint:1,1
+            BoxLayout:
+                size_hint: 100, 0.1
+                orientation: 'horizontal'
                 Button:
-                    text: "Download"
+                    text: "MP3"
                     pos_hint :{'center_x':0.0, 'center_y':0.0}
-                    size_hint: 100, 0.5
+                    size_hint: 0.5,0.5
                     background_color: (0.06, .36, .4, .675)
                     font_size: 40
-                    width: 20
-                    size_hint_x: 10
-                    on_press: Thread(target=root.downloadCallback())
+                    on_press: Thread(target=root.mp3())
+                Widget:
+                    size_hint: 0.8, 1
+                Button:
+                    text: "MP4"
+                    pos_hint :{'center_x':0.0, 'center_y':0.0}
+                    size_hint: 0.5,0.5
+                    background_color: (0.06, .36, .4, .675)
+                    font_size: 40
+                    on_press: Thread(target=root.mp4())
 
-                GridLayout:
-                    cols:1
-                    TextInput:
-                        multiline: False
-                        padding_y: 0.5,0.5
-                        size_hint: 100, 100
+                    GridLayout:
+                        size_hint: 1, 0.1
+                        cols:1
+                        Button:
+                            text: "Download"
+                            pos_hint :{'center_x':0.0, 'center_y':0.0}
+                            size_hint: 100, 0.5
+                            background_color: (0.06, .36, .4, .675)
+                            font_size: 40
+                            width: 20
+                            size_hint_x: 10
+                            on_press: Thread(target=root.downloadCallback())
+                        TextInput:
+                            multiline: False
+                            padding_y: 0.5,0.5
+                            size_hint: 100, 100
