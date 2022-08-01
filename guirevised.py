@@ -24,9 +24,9 @@ format = 'bestaudio/best'
 fileOutputName = ''
 fileQuality = ''
 testvar = ''
+url_text_input = ObjectProperty()
 
-
-class MyFloatLayout(Widget):
+class MyFloatLayout(FloatLayout):
     def mp3(self): #mp3 callback
         global mp3
         mp3 = 1
@@ -46,11 +46,11 @@ class MyFloatLayout(Widget):
         print('[+] Debugging File Type:' + " " + 'MP4')
 
 
-    def downloadCallback(self,instance):   ## combined download and gui into one file for simplicity
+    def downloadCallback(self):   ## combined download and gui into one file for simplicity
         downloadReady = 1
-        self.greeting.text = "Downloading " + self.user.text + "!"
-        url = self.user.text
         time.sleep(2)
+        global url
+        url = ''
         if downloadReady == 0:
             print('awaiting URL...')
 
