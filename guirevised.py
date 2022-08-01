@@ -27,6 +27,10 @@ testvar = ''
 url_text_input = ObjectProperty()
 
 class MyFloatLayout(FloatLayout):
+
+    def spinner_clicked(self,value):
+        self.ids.click_label.text = f'You selected {value}'
+
     def mp3(self): #mp3 callback
         global mp3
         mp3 = 1
@@ -95,6 +99,8 @@ class MyFloatLayout(FloatLayout):
 def postDownload(): ## what happens after user decides continue after successful download
     print ("[+] Debug Message: Starting postDownload Function")
     self.greeting.text = "Start another download?"
+
+
 
 
 class YTDL(App):
