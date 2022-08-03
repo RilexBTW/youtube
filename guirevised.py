@@ -26,10 +26,14 @@ fileQuality = ''
 testvar = ''
 url_text_input = ObjectProperty()
 
-class MyFloatLayout(FloatLayout):
 
+
+
+
+class MyFloatLayout(FloatLayout):
     def spinner_clicked(self,value):
-        self.ids.click_label.text = f'You selected {value}'
+        self.ids.click_label.text = f'Download as {value}'
+
 
     def mp3(self): #mp3 callback
         global mp3
@@ -50,7 +54,7 @@ class MyFloatLayout(FloatLayout):
         print('[+] Debugging File Type:' + " " + 'MP4')
 
 
-    def downloadCallback(self):   ## combined download and gui into one file for simplicity
+    def downloadCallback(self, value):   ## combined download and gui into one file for simplicity
         downloadReady = 1
         time.sleep(2)
         global url
@@ -62,14 +66,14 @@ class MyFloatLayout(FloatLayout):
         if downloadReady == 1:
             print('Starting download...')
 
-        if mp4 == 1:
+        if value == "MP4":
             global ydl_opts
             ydl_opts = {
                 'format': 'best[ext=mp4]' #137 is 1080, 136 is 720
                     }
             with youtube_dl.YoutubeDL(ydl_opts) as ydl:
                 ydl.download([url])
-        if mp3 == 1:
+        if value == "MP3":
             global ydl_opts_mp3
             ydl_opts_mp3 = {
                 'format': format,
