@@ -24,6 +24,7 @@ format = 'bestaudio/best'
 fileOutputName = ''
 fileQuality = ''
 testvar = ''
+
 url_text_input = ObjectProperty()
 
 
@@ -31,8 +32,6 @@ url_text_input = ObjectProperty()
 
 
 class MyFloatLayout(FloatLayout):
-    def spinner_clicked(self,value):
-        self.ids.click_label.text = f'Download as {value}'
 
 
     def mp3(self): #mp3 callback
@@ -44,6 +43,7 @@ class MyFloatLayout(FloatLayout):
         print('[+] Debugging file Format:' + " " + 'MP3')
         if downloadReady == 1:
             print('Starting download...')
+            print(f'current url: + {url}')
 
     def mp4(self): # mp4 callback
         global mp4
@@ -52,13 +52,14 @@ class MyFloatLayout(FloatLayout):
         mp3 = 0
         print('[+] Debugging file Format:' + " " + 'MP4')
         print('[+] Debugging File Type:' + " " + 'MP4')
+        if downloadReady == 1:
+            print('Starting download...')
+            print('current url:' + url)
 
-
-    def downloadCallback(self, value):   ## combined download and gui into one file for simplicity
+    def downloadCallback(self):   ## combined download and gui into one file for simplicity
+        target_url = self.url_text_input.text
         downloadReady = 1
         time.sleep(2)
-        global url
-        url = ''
         if downloadReady == 0:
             print('awaiting URL...')
 
@@ -66,14 +67,14 @@ class MyFloatLayout(FloatLayout):
         if downloadReady == 1:
             print('Starting download...')
 
-        if value == "MP4":
+        if mp4 == 1:
             global ydl_opts
             ydl_opts = {
                 'format': 'best[ext=mp4]' #137 is 1080, 136 is 720
                     }
             with youtube_dl.YoutubeDL(ydl_opts) as ydl:
-                ydl.download([url])
-        if value == "MP3":
+                ydl.download([target_url])
+        if mp3 == 1:
             global ydl_opts_mp3
             ydl_opts_mp3 = {
                 'format': format,
@@ -86,7 +87,7 @@ class MyFloatLayout(FloatLayout):
 
 
             with youtube_dl.YoutubeDL(ydl_opts_mp3) as ydl:
-                ydl.download([url])
+                ydl.download([target_url])
         print("placeholder placeholder placeholder")
         self.greeting.text = "Download Complete!"
 
@@ -103,6 +104,7 @@ class MyFloatLayout(FloatLayout):
 def postDownload(): ## what happens after user decides continue after successful download
     print ("[+] Debug Message: Starting postDownload Function")
     self.greeting.text = "Start another download?"
+    url = ''
 
 
 
