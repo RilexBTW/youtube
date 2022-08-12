@@ -1,6 +1,12 @@
 #:import Thread threading.Thread
 
 <FloatLayout>:
+    canvas.before:
+        Color:
+            rgba: (20/255,20/255,24/255,1)
+        Rectangle:
+            pos: self.pos
+            size: self.size
     url_text_input: url
     orientation: "vertical"
     size: root.width, root.height
