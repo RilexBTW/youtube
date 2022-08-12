@@ -23,7 +23,7 @@
         size_hint: 0.6, 0.2
         pos_hint: {"x": 0.20, "y":0.09}
         text: "Download"
-        on_release: root.downloadCallback()
+        on_release: Thread(target=root.start_download_thread())
     Button:
         size_hint: 0.2, 0.2
         pos_hint: {"x": 0.55, "y":0.35}

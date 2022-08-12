@@ -35,12 +35,12 @@ url_text_input = ObjectProperty()
 class MyFloatLayout(FloatLayout):
     stop = threading.Event()
 
-    def start_second_thread(self):
-        threading.Thread(target=self.second_thread).start()
+    def start_download_thread(self):
+        threading.Thread(target=self.download_thread).start()
 
-    def second_thread(self):
+    def download_thread(self):
         print("This is the second thread")
-        threading.Thread(target=self.infinite_loop).start()
+        threading.Thread(target=self.downloadCallback()).start()
 
 
     def mp3(self): #mp3 callback
@@ -114,10 +114,6 @@ def postDownload(): ## what happens after user decides continue after successful
     url = ''
 
 
-
-def infinite_loop(self):
-    def on_stop(self):
-        self.root.stop.set()
 
 
 
