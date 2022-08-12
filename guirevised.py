@@ -13,6 +13,7 @@ from kivy.properties import ObjectProperty
 import time
 import youtube_dl
 import threading
+import ffmpeg
 
 
 
@@ -32,6 +33,14 @@ url_text_input = ObjectProperty()
 
 
 class MyFloatLayout(FloatLayout):
+    stop = threading.Event()
+
+    def start_second_thread(self):
+        threading.Thread(target=self.second_thread).start()
+
+    def second_thread(self):
+        print("This is the second thread")
+        threading.Thread(target=self.infinite_loop).start()
 
 
     def mp3(self): #mp3 callback
@@ -89,7 +98,6 @@ class MyFloatLayout(FloatLayout):
             with youtube_dl.YoutubeDL(ydl_opts_mp3) as ydl:
                 ydl.download([target_url])
         print("placeholder placeholder placeholder")
-        self.greeting.text = "Download Complete!"
 
 
 
@@ -103,9 +111,13 @@ class MyFloatLayout(FloatLayout):
 
 def postDownload(): ## what happens after user decides continue after successful download
     print ("[+] Debug Message: Starting postDownload Function")
-    self.greeting.text = "Start another download?"
     url = ''
 
+
+
+def infinite_loop(self):
+    def on_stop(self):
+        self.root.stop.set()
 
 
 

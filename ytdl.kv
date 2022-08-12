@@ -23,17 +23,17 @@
         size_hint: 0.6, 0.2
         pos_hint: {"x": 0.20, "y":0.09}
         text: "Download"
-        on_press: Thread(target=root.downloadCallback())
+        on_release: root.downloadCallback()
     Button:
         size_hint: 0.2, 0.2
         pos_hint: {"x": 0.55, "y":0.35}
         text: "MP3"
-        on_press: Thread(target=root.mp3())
+        on_press: root.mp3()
     Button:
         size_hint: 0.2, 0.2
         pos_hint: {"x": 0.25, "y":0.35}
         text: "MP4"
-        on_press: Thread(target=root.mp4())
+        on_press: root.mp4()
 
     Label:
         text: ''

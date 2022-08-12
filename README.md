@@ -6,6 +6,10 @@ GUI Wrapper written in python for YouTubeDL
 
 # Changelog:
 
+#1.0.0-a0.3
+## Notes
+in order to fix ffmpeg error, installed ffmpeg exe files to 'C:\Users\%user%\AppData\Local\Programs\Python310\Scripts'
+
 # 1.0.0-a0.2
 ## Added
 - App Icon (Temp Image)
