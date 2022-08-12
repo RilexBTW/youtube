@@ -34,7 +34,7 @@ url_text_input = ObjectProperty()
 
 class MyFloatLayout(FloatLayout):
     stop = threading.Event()
-
+    title = "YouTube Downloader"
     def start_download_thread(self):
         threading.Thread(target=self.download_thread).start()
 
@@ -52,6 +52,7 @@ class MyFloatLayout(FloatLayout):
         print('[+] Debugging file Format:' + " " + 'MP3')
         if downloadReady == 1:
             print('Starting download...')
+            title = "Starting download..."
             print(f'current url: + {url}')
 
     def mp4(self): # mp4 callback
@@ -65,10 +66,14 @@ class MyFloatLayout(FloatLayout):
             print('Starting download...')
             print('current url:' + url)
 
+    def downloadComplete():
+        title = "Download is complete."
+
     def downloadCallback(self):   ## combined download and gui into one file for simplicity
         target_url = self.url_text_input.text
         downloadReady = 1
         time.sleep(2)
+        title = "Download in progress..."
         if downloadReady == 0:
             print('awaiting URL...')
 
@@ -101,17 +106,10 @@ class MyFloatLayout(FloatLayout):
 
 
 
-
         #return self.window
 
 
 
-
-
-
-def postDownload(): ## what happens after user decides continue after successful download
-    print ("[+] Debug Message: Starting postDownload Function")
-    url = ''
 
 
 
