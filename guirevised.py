@@ -73,7 +73,7 @@ class MyFloatLayout(FloatLayout):
         target_url = self.url_text_input.text
         downloadReady = 1
         time.sleep(2)
-        title = "Download in progress..."
+        MyFloatLayout.title = "Download in progress..."
         if downloadReady == 0:
             print('awaiting URL...')
 
