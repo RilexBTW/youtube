@@ -6,7 +6,7 @@ GUI Wrapper written in python for YouTubeDL
 
 # Changelog:
 
-#1.0.0-a0.3
+# 1.0.0-a0.3
 ## Changed
 - Reworked entire UI (again)
 - Created a more official app Icon
