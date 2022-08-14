@@ -21,7 +21,7 @@ import ffmpeg
 downloadReady = 0
 fileType = ''
 fileFormat = ''
-format = 'bestaudio/best'
+format = ''
 fileOutputName = ''
 fileQuality = ''
 testvar = ''
@@ -91,7 +91,7 @@ class MyFloatLayout(FloatLayout):
         if mp3 == 1:
             global ydl_opts_mp3
             ydl_opts_mp3 = {
-                'format': format,
+                'format': 'bestaudio/best',
                 'postprocessors': [{
                 'key': 'FFmpegExtractAudio',
                 'preferredcodec' : 'mp3',
