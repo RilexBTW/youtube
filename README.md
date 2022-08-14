@@ -2,6 +2,21 @@
 
 GUI Wrapper written in python for YouTubeDL
 
+Currently Installation from Source is the only supported way to install until an official alpha is released.
+
+## Installation from source
+```console
+# clone the repo
+$ git clone https://www.github.com/rilexbtw/youtube.git
+
+# navigate to the HuePy directory
+$ cd youtube
+
+# install the requirements
+$ python3 -m pip install -r requirements.txt
+```
+
+
 
 
 # Changelog:
