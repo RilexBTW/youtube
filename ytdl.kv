@@ -23,8 +23,8 @@
 #        on_press: Thread(target=root.downloadCallback())
     TextInput:
         multiline: False
-        size_hint: 1, 0.05
-        pos_hint: {"x":0, "y":0.40}
+        size_hint: 0.70, 0.05
+        pos_hint: {"x":0.15, "y":0.40}
         id: url
     Button:
         size_hint: 0.6, 0.2
@@ -42,5 +42,32 @@
         text: "MP4"
         on_press: root.mp4()
 
+
+
+    Button:
+        size_hint: 0.06, 0.60
+        pos_hint: {"x": 0.0, "y":0.0}
+        text: ""
+        on_press:
+    Button:
+        size_hint: 0.06, 0.10
+        pos_hint: {"x": 0.0, "y":0.60}
+        text: ""
+        on_press:
+    Button:
+        size_hint: 0.06, 0.10
+        pos_hint: {"x": 0.0, "y":0.70}
+        text: ""
+        on_press:
+    Button:
+        size_hint: 0.06, 0.10
+        pos_hint: {"x": 0.0, "y":0.80}
+        text: ""
+        on_press:
+    Button:
+        size_hint: 0.06, 0.10
+        pos_hint: {"x": 0.0, "y":0.90}
+        text: ""
+        on_press:
     Label:
         text: ''
