@@ -7,8 +7,26 @@ GUI Wrapper written in python for YouTubeDL
 # Changelog:
 
 #1.0.0-a0.3
+## Changed
+- Reworked entire UI (again)
+- Created a more official app Icon
+- Renamed guirevised to app.py
+
+## Fixed
+- Fixed mp3 and mp4 not working after moving to the gui revised variant
+
+## Added
+- Started building update.py script
+
 ## Notes
 in order to fix ffmpeg error, installed ffmpeg exe files to 'C:\Users\%user%\AppData\Local\Programs\Python310\Scripts'
+
+It's still unclear if the update.py script will be standalone or an integrated function. The main functionality I seek at the moment is to allow users an optional streamlined or automatic update / upgrade path without the need to go to github and download the newest version. This of course will allow for security and bug fixes to be automatically installed which ideally will make the overall experience better. Obviously with automatic updates things can end up breaking or not working when they worked in an earlier version which is one of the reasons why this will remain an optional feature and it is also a reason why it will only pull updates from release versions, not the updated source code
+
+In its current state, this project should be seeing an alpha release fairly soon :)
+
+
+
 
 # 1.0.0-a0.2
 ## Added
