@@ -21,7 +21,7 @@ $ python3 -m pip install -r requirements.txt
 
 # Changelog:
 
-#1.0.0-a0.3
+# 1.0.0-a0.3
 ## Changed
 - Reworked entire UI (again)
 - Created a more official app Icon
