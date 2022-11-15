@@ -15,7 +15,7 @@ $ cd youtube
 # install the requirements
 $ python3 -m pip install -r requirements.txt
 ```
-## Build executable
+## Build executable from source
 
 ```console
 # clone the repo
