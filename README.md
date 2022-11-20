@@ -38,10 +38,10 @@ $ pyinstaller ytdl.spec --clean
 # Changelog:
 
 # 1.0.0.-a0.4
-# Changed
+## Changed
 - Reorganized file structure into src folder
 
-# Added
+## Added
 - Build instructions to README file for anyone who doesn't want to run a random EXE
 
 # 1.0.0-a0.3
